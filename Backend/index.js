@@ -19,51 +19,68 @@ ConnectMongoDB()
   .catch((err) => console.log("Error Connecting MongoDB", err));
 
 // Middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(CheckforAuthCookie("token"));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 app.use(cors({
-  origin: '*',
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept', 'x-client-key', 'x-client-token', 'x-client-secret', 'Authorization'],
-  credentials: true
+  origin: true,
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
-// Serve static files
-app.use('/assets', express.static(path.join(__dirname, 'assets')));
-
-// Root route
+// Health check route
 app.get('/', (req, res) => {
-  res.json({ message: 'Welcome to Foodie API' });
+  res.status(200).json({ status: 'ok', message: 'Server is running' });
 });
 
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'ok', message: 'Server is healthy' });
+});
+
+// Static files
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
+
+// Authentication middleware
+app.use(CheckforAuthCookie("token"));
+
 // Routes
-app.use("/api/add-new/", itemRouter);
+app.use("/api/add-new", itemRouter); 
 app.use("/api", userRouter);
 app.use("/api/v1/pay", paymentRoutes);
 app.use("/api/review", reviewRoutes); 
 app.use("/api/tracking", trackingg); 
 
+// Reviews count endpoint
 app.get('/api/reviews/count', async (req, res) => {
   try {
     const reviewsCount = await Review.countDocuments();
     res.json({ count: reviewsCount });
   } catch (error) {
+    console.error('Error fetching reviews count:', error);
     res.status(500).json({ error: 'Failed to fetch reviews count' });
   }
 });
 
-// Test route
-app.get("/test", (req, res) => {
-  return res.json({ status: "Server is running" });
-});
-
-// Error handling middleware
+// Error handling
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  res.status(500).json({ error: 'Something went wrong!' });
+  res.status(500).json({ 
+    status: 'error',
+    message: process.env.NODE_ENV === 'production' ? 'Internal server error' : err.message
+  });
 });
 
-// Start the server
-app.listen(PORT, HOST, () => console.log(`Server Running on PORT:${PORT}`));
+// Handle 404
+app.use((req, res) => {
+  res.status(404).json({ 
+    status: 'error',
+    message: 'Route not found'
+  });
+});
+
+// Start server
+const port = process.env.PORT || PORT || 5000;
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
