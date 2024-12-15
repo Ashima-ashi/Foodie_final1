@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
+const { MONGODB_URI } = require("./config");
 
-function ConnectMongoDB(url){
+function ConnectMongoDB(url = MONGODB_URI){
     return mongoose.connect(url);
 }
 
