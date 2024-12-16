@@ -75,7 +75,7 @@ function Footer() {
     const token = localStorage.getItem('token');
 
     try {
-      const response = await fetch('http://localhost:5000/api/review/submit', {
+      const response = await fetch('https://foodie-final1-iof5.vercel.app/?vercelToolbarCode=oeLNhUdMyi_kX5o/api/review/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -5,7 +5,7 @@ import { useCookies } from "react-cookie";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const serverURL = "http://localhost:5000";
+const serverURL = "https://foodie-final1-iof5.vercel.app/?vercelToolbarCode=oeLNhUdMyi_kX5o";
 
 const Login = () => {
   const [email, setEmail] = useState("");

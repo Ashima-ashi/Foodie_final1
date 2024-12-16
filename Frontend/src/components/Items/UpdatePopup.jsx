@@ -28,7 +28,7 @@ const UpdatePopup = ({ category, onClose, onUpdate }) => {
     e.preventDefault();
     try {
       const response = await fetch(
-        `http://localhost:5000/api/add-new/categories/${category._id}`,
+        `https://foodie-final1-iof5.vercel.app/?vercelToolbarCode=oeLNhUdMyi_kX5o/api/add-new/categories/${category._id}`,
         {
           method: "PUT",
           headers: {

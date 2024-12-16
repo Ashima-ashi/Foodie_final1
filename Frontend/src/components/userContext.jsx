@@ -4,7 +4,7 @@ import { useCookies } from 'react-cookie';
 const UserContext = createContext();
 
 // const serverURL = "http://192.168.54.63:5000"
-const serverURL = "http://localhost:5000"
+const serverURL = "https://foodie-final1-iof5.vercel.app/?vercelToolbarCode=oeLNhUdMyi_kX5o"
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);

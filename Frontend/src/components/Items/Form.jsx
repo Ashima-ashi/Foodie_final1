@@ -5,7 +5,7 @@ import AddItemForm from './AddItem';
 import './style1.css';
 import { useUser } from '../userContext';
 
-const serverURL = "http://localhost:5000";
+const serverURL = "https://foodie-final1-iof5.vercel.app/?vercelToolbarCode=oeLNhUdMyi_kX5o";
 
 const MyComponent = () => {
   const { user } = useUser();

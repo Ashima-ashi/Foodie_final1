@@ -38,7 +38,7 @@ function App() {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/api/user", {
+      const response = await fetch("https://foodie-final1-iof5.vercel.app/?vercelToolbarCode=oeLNhUdMyi_kX5o/api/user", {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
