@@ -13,6 +13,7 @@ const itemRouter = require("./routes/items");
 const reviewRoutes = require("./routes/reviewRoutes"); 
 const trackingg = require("./routes/tracking"); 
 
+require('dotenv').config();
 // Connect to MongoDB
 ConnectMongoDB()
   .then(() => console.log("MongoDB Connected Successfully."))
@@ -23,7 +24,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(cors({
-  origin:  "https://foodie-final1-iof5-g0hpa8gdn-ashima-gargs-projects.vercel.app",
+  origin:['http://localhost:3000'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
@@ -80,6 +81,8 @@ app.use((req, res) => {
 });
 
 // Start server
+// console.log(process.env.PORT);
+// console.log(process.env.SECRET)
 const port = process.env.PORT || PORT || 5000;
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
