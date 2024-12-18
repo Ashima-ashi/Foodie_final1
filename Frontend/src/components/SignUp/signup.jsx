@@ -5,7 +5,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
  import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Import eye icons
 
-const serverURL = "https://foodie-final1-iof5.vercel.app/?vercelToolbarCode=oeLNhUdMyi_kX5o";
+const serverURL = "https://foodie-final1-iof5-g0hpa8gdn-ashima-gargs-projects.vercel.app";
 
 const SignUp = () => {
   const [fullName, setFullName] = useState('');
