@@ -23,13 +23,25 @@ ConnectMongoDB()
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://foodie1-afg1wkxs4-ashima-gargs-projects.vercel.app',
+  process.env.ORIGIN_1,
+  process.env.ORIGIN_2
+];
+
 app.use(cors({
-  origin:['http://localhost:3000','https://foodie1-afg1wkxs4-ashima-gargs-projects.vercel.app',process.env.ORIGIN_1,process.env.ORIGIN_2],
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true); // Allow the origin
+    } else {
+      callback(new Error('Not allowed by CORS')); // Reject the origin
+    }
+  },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', '*']
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
-
 // Health check route
 app.get('/', (req, res) => {
   res.status(200).json({ status: 'ok', message: 'Server is running' });
