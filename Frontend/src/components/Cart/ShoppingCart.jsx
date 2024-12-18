@@ -7,7 +7,7 @@ import "./style.css";
 // Import the image at the top
 import cartBanner from '../../assets/category-images/cart.png';
 
-const serverURL = "https://foodie-final1-iof5-g0hpa8gdn-ashima-gargs-projects.vercel.app";
+const serverURL = "https://foodie-3ken.onrender.com";
 
 const ShoppingCart = () => {
   const { cartItems, clearCart, removeItemFromCart, increaseItemQuantity, decreaseItemQuantity } = useContext(CartContext);

@@ -13,7 +13,7 @@ function AllCategories1() {
   // Fetch items from the backend API
   const fetchItems = async () => {
     try {
-      const response = await fetch("https://foodie-final1-iof5-g0hpa8gdn-ashima-gargs-projects.vercel.app/api/add-new/items");
+      const response = await fetch("https://foodie-3ken.onrender.com/api/add-new/items");
       if (!response.ok) throw new Error("Failed to fetch data.");
       const data = await response.json();
       setItems(data);
@@ -30,7 +30,7 @@ function AllCategories1() {
     setTimeout(async () => {
       try {
         const response = await fetch(
-          `https://foodie-final1-iof5-g0hpa8gdn-ashima-gargs-projects.vercel.app/api/add-new/items/${id}`,
+          `https://foodie-3ken.onrender.com/api/add-new/items/${id}`,
           {
             method: "DELETE",
           }

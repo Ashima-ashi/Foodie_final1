@@ -11,7 +11,7 @@ const AllrectOrder = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get("https://foodie-final1-iof5-g0hpa8gdn-ashima-gargs-projects.vercel.app/api/orders");
+        const response = await axios.get("https://foodie-3ken.onrender.com/api/orders");
         const allOrders = response.data;
 
         const sevenDaysAgo = new Date();

@@ -28,7 +28,7 @@ const UpdatePopup = ({ category, onClose, onUpdate }) => {
     e.preventDefault();
     try {
       const response = await fetch(
-        `https://foodie-final1-iof5-g0hpa8gdn-ashima-gargs-projects.vercel.app/api/add-new/categories/${category._id}`,
+        `https://foodie-3ken.onrender.com/api/add-new/categories/${category._id}`,
         {
           method: "PUT",
           headers: {

@@ -75,7 +75,7 @@ function Footer() {
     const token = localStorage.getItem('token');
 
     try {
-      const response = await fetch('https://foodie-final1-iof5-g0hpa8gdn-ashima-gargs-projects.vercel.app/api/review/submit', {
+      const response = await fetch('https://foodie-3ken.onrender.com/api/review/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

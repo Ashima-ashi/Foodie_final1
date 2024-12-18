@@ -52,7 +52,7 @@ function EditPopup({ item, onCancel, onSave }) {
 
     try {
       const response = await fetch(
-        `https://foodie-final1-iof5-g0hpa8gdn-ashima-gargs-projects.vercel.app/api/add-new/items/${item._id}`,
+        `https://foodie-3ken.onrender.com/api/add-new/items/${item._id}`,
         {
           method: "PUT",
           headers: {

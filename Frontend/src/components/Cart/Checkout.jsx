@@ -22,7 +22,7 @@ const Checkout = ({ totalAmount, handlePayment }) => {
         return;
       }
 
-      const response = await fetch('https://foodie-final1-iof5-g0hpa8gdn-ashima-gargs-projects.vercel.app/api/user', {
+      const response = await fetch('https://foodie-3ken.onrender.com/api/user', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -73,7 +73,7 @@ const Checkout = ({ totalAmount, handlePayment }) => {
 
     const amount = totalAmount * 100; // Convert amount to paise
     try {
-      const response = await fetch('https://foodie-final1-iof5-g0hpa8gdn-ashima-gargs-projects.vercel.app/api/v1/pay/checkout', {
+      const response = await fetch('https://foodie-3ken.onrender.com/api/v1/pay/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ amount, currency: 'INR' }),
@@ -83,7 +83,7 @@ const Checkout = ({ totalAmount, handlePayment }) => {
 
       // Initialize Razorpay payment
       const options = {
-        key: 'rzp_test_XaigqT7nptLPme', // Replace with your Razorpay API key
+        key: process.env.REACT_APP_RAZORPAY_KEY, // Replace with your Razorpay API key
         amount: order.amount*100, // Amount in paise
         currency: order.currency,
         name: 'Foodie', // Your company or website name
@@ -97,7 +97,7 @@ const Checkout = ({ totalAmount, handlePayment }) => {
 
             try {
               const verificationResponse = await fetch(
-                'https://foodie-final1-iof5-g0hpa8gdn-ashima-gargs-projects.vercel.app/api/v1/pay/paymentverification',
+                'https://foodie-3ken.onrender.com/api/v1/pay/paymentverification',
                 {
                   method: 'POST',
                   headers: {

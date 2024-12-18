@@ -10,7 +10,7 @@ const Reviews = () => {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await fetch("https://foodie-final1-iof5-g0hpa8gdn-ashima-gargs-projects.vercel.app/api/review");
+        const response = await fetch("https://foodie-3ken.onrender.com/api/review");
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }

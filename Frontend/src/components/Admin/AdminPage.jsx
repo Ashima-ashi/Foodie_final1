@@ -29,7 +29,7 @@ ChartJS.register(
   PointElement
 );
 
-const serverURL = "https://foodie-final1-iof5-g0hpa8gdn-ashima-gargs-projects.vercel.app";
+const serverURL = "https://foodie-3ken.onrender.com";
 
 function AdminDashboard() {
     const [users, setUsers] = useState([]);

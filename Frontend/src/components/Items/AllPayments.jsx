@@ -11,7 +11,7 @@
 //   useEffect(() => {
 //     const fetchOrders = async () => {
 //       try {
-//         const response = await axios.get("https://foodie-final1-iof5-g0hpa8gdn-ashima-gargs-projects.vercel.app/api/v1/pay/getAllUserPayments");
+//         const response = await axios.get("https://foodie-3ken.onrender.com/api/v1/pay/getAllUserPayments");
 //         const allPayments = response.data.userPayments || [];
 
 //         // Calculate the date 7 days ago
@@ -122,7 +122,7 @@ const AllPayments = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get("https://foodie-final1-iof5-g0hpa8gdn-ashima-gargs-projects.vercel.app/api/v1/pay/getAllUserPayments");
+        const response = await axios.get("https://foodie-3ken.onrender.com/api/v1/pay/getAllUserPayments");
         const allPayments = response.data.userPayments || [];
 
         const sevenDaysAgo = new Date();

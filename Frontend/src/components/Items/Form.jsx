@@ -5,7 +5,7 @@ import AddItemForm from './AddItem';
 import './style1.css';
 import { useUser } from '../userContext';
 
-const serverURL = "https://foodie-final1-iof5-g0hpa8gdn-ashima-gargs-projects.vercel.app";
+const serverURL = "https://foodie-3ken.onrender.com";
 
 const MyComponent = () => {
   const { user } = useUser();

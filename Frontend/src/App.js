@@ -38,7 +38,7 @@ function App() {
     }
 
     try {
-      const response = await fetch("https://foodie-final1-iof5-g0hpa8gdn-ashima-gargs-projects.vercel.app/api/user", {
+      const response = await fetch("https://foodie-3ken.onrender.com/api/user", {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
